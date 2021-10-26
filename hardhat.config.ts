@@ -15,11 +15,12 @@ if (!mnemonic) {
   throw new Error("Please set your MNEMONIC in a .env file");
 }
 
-function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
-  const url: string = "http://localhost:8545";
+function getChainConfig(url: string, network: keyof typeof chainIds): NetworkUserConfig {
   return {
+    from: "0x85F4c4C2e04CcAbbd32c7833D3b364921b0E3663",
     accounts: {
       mnemonic,
+      initialIndex: 8,
     },
     chainId: chainIds[network],
     url,
@@ -31,7 +32,7 @@ const config: HardhatUserConfig = {
     version: "0.8.0",
   },
   networks: {
-    besu: getChainConfig("besu"),
+    besu: getChainConfig("http://localhost:8545", "besu"),
   },
 };
 

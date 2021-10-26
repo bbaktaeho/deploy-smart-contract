@@ -13,19 +13,23 @@ describe("AssetToken", () => {
   const [admin] = provider.getWallets();
 
   beforeEach(async () => {
-    assetToken = (await deployContract(admin, AssetTokenArtifact, [10000, "FirstAssetToken", "FAT"])) as AssetToken;
+    assetToken = (await deployContract(admin, AssetTokenArtifact, [
+      100000000000,
+      "FirstAssetToken",
+      "FAT",
+    ])) as AssetToken;
   });
 
   context("new AssetToken", async () => {
     it("has given data", async () => {
-      expect(await assetToken.totalSupply()).to.be.equal(10000);
+      expect(await assetToken.totalSupply()).to.be.equal(100000000000);
       expect(await assetToken.name()).to.be.equal("FirstAssetToken");
       expect(await assetToken.symbol()).to.be.equal("FAT");
       //   expect(await assetToken.decimals()).to.be.equal(0);
     });
 
     it("increases the deployer balance", async () => {
-      expect(await assetToken.balanceOf(admin.address)).to.be.equal(10000);
+      expect(await assetToken.balanceOf(admin.address)).to.be.equal(100000000000);
     });
   });
 });
