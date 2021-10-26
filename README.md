@@ -50,6 +50,10 @@
 
   ```
 
+### Deploy script
+
+Create script file to deploy in `./scripts`.
+
 ### Usage
 
 ```shell
