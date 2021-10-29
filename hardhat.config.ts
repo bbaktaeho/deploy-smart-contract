@@ -17,7 +17,6 @@ if (!mnemonic) {
 
 function getChainConfig(url: string, network: keyof typeof chainIds): NetworkUserConfig {
   return {
-    from: "0x85F4c4C2e04CcAbbd32c7833D3b364921b0E3663",
     accounts: {
       mnemonic,
       initialIndex: 8,
@@ -32,7 +31,7 @@ const config: HardhatUserConfig = {
     version: "0.8.0",
   },
   networks: {
-    besu: getChainConfig("http://localhost:8545", "besu"),
+    besu: getChainConfig("http://192.168.66.111:8545", "besu"),
   },
 };
 
